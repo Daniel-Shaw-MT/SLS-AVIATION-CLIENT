@@ -1,12 +1,13 @@
-import PropTypes from 'prop-types'
 
 import Header from './components/Header'
+import LoginForm from './components/LoginForm'
 
 function App() {
 
   return (
     <div className="container">
       <Header />
+      <LoginForm />
     </div>
   );
 }

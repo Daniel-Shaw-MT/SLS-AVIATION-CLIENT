@@ -2,6 +2,20 @@
   font-family: 'Poppins', sans-serif;
   padding: 0;
   margin: 0;
+  
+}
+
+h1{
+  color: #1E1E1E;
+}
+h2{
+  color: #1E1E1E;
+}
+h3{
+  color: #1E1E1E;
+}
+p{
+  color: #1E1E1E;
 }
 .slsGrad {
   background-image: linear-gradient(to right, #37B6FF , #5371FF);
@@ -9,6 +23,7 @@
 .title {
   display: inline-block;
   padding-left: 2%;
+  color: #1E1E1E;
 }
 ul {
 
@@ -99,6 +114,7 @@ p h4 body {
 }
 
 .cont-container{
+  display: inline;
   height: max-content;
   margin-top: 2%;
   margin-left: 2%;
@@ -114,6 +130,7 @@ p h4 body {
   overflow: hidden;
 }
 .main-container{
+  display: inline-bl;
   height: max-content;
   margin-top: 2%;
   margin-left: 2%;
@@ -162,4 +179,104 @@ p h4 body {
 
 #six {
 
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  padding-bottom: 5px;
+  border: 0;
+  border-bottom: 2px solid #1E1E1E;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #4A88FF;
+  padding-top: 2%;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+
+.loginArea {
+  height: max-content;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  
+  width: 50%;
+  background: rgba( 255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);
+  backdrop-filter: blur( 7.0px);
+  -webkit-backdrop-filter: blur( 7.0px);
+  border-radius: 10px;
+  overflow: hidden;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.loginHead {
+  height: max-content;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  width: 50%;
+  background: rgba( 255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);
+  backdrop-filter: blur( 7.0px);
+  -webkit-backdrop-filter: blur( 7.0px);
+  border-radius: 10px;
+  overflow: hidden;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.btn-cont{
+  display: inline-block;
+  width: 50%;
+  padding-top: 2%
+}
+
+.btn-left{
+  float: right;
+  display: inline;
+	width: 90px;
+	height: 40px;
+	border: 2px solid #1E1E1E;;
+	border-radius: 40px;
+	background: transparent;
+	color: #1E1E1E;
+	letter-spacing: 1px;
+  font-size: 18px;
+}
+.btn-left:hover{
+  transition: 300ms;
+  border: 2px solid#4A88FF;
+  background: #4A88FF;
+  color: white;
+}
+.btn-left:active {
+  background: blue;
+}
+.btn {
+  float: left;
+  display: inline;
+	width: 90px;
+	height: 40px;
+	border: 2px solid #1E1E1E;
+	border-radius: 40px;
+	background: transparent;
+	color: #1E1E1E;
+	letter-spacing: 1px;
+  font-size: 18px;
+}
+.btn:hover{
+  transition: 300ms;
+  border: 2px solid#4A88FF;
+  background: #4A88FF;
+  color: white;
+
+}
+.btn:active {
+  background: blue;
 }
