@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import React, { Component } from 'react';
 import Cookie from "js-cookie";
 
@@ -79,8 +80,9 @@ class LoginForm extends Component {
                         <input type="password" onChange={this.handlePass} className="form__field" placeholder="Password" name="name" id='password' required />
                         <p className='error-text'>{ this.state.error}</p>
                         <div className='btn-cont'>
-
-                            <button onClick={this.register} className='btn'><span>Register</span></button>
+                        <Link to="/register">
+                            <button className='btn'><span>Register</span></button>
+                        </Link>
                         </div>
                         <div className='btn-cont'>
                             <button onClick={(e) => { this.login() }} className='btn-left'><span>Login</span></button>
