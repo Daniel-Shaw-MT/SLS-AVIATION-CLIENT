@@ -1,6 +1,6 @@
 import people from '../assets/svg/030-people.svg'
-import gear from '../assets/svg/007-gear.svg'
 import help from '../assets/svg/048-question.svg'
+import { Link } from 'react-router-dom'
 const Header = () => {
 
    
@@ -10,10 +10,12 @@ const Header = () => {
                 <h1 className='title'>Login or signup</h1>
                 <ul>
                     <li>
-                        <button className='main-button'><img className='menu-icon' src={people} alt='people'></img></button>
-                        <button className='main-button'><img className='menu-icon' src={help} alt='people'></img></button>
-                        <button className='main-button'><img className='menu-icon' src={gear} alt='settings'></img></button>
-
+                        <Link to="/contact">
+                        <button  className='main-button'><img className='menu-icon' src={people} alt='people'></img></button>
+                        </Link>
+                        <Link to="/help">
+                            <button to="/help" className='main-button'><img className='menu-icon' src={help} alt='help'></img></button>
+                        </Link>
                     </li>
                 </ul>
             </div>

@@ -34,7 +34,7 @@ ul {
   overflow: hidden;
 }
 li {
-  display: inline-block;
+  display: flex;
   
 }
 li a {
@@ -51,9 +51,7 @@ li a:hover:not(.active) {
   background-color: none;
 
 }
-.active {
-  
-}
+
 .sub-title {
   margin-left: 2%;
 }
@@ -75,14 +73,12 @@ p h4 body {
   width: 32px;
   height: 32px;
 }
+
 .img-icon {
   width: 25px;
   height: 25px;
 }
 
-.field {
-  
-}
 
 .main-button {
   height: 55px;
@@ -91,6 +87,7 @@ p h4 body {
   background-color: transparent;
   border-width: 0px;
   border-radius: 36px;
+  overflow: hidden;
 }
 
 .main-button:hover {
@@ -171,14 +168,6 @@ p h4 body {
 #four {
   grid-column-start: 1;
   grid-column-end: 1;
-}
-
-#five {
-  
-}
-
-#six {
-
 }
 
 .form__field {
@@ -279,4 +268,10 @@ p h4 body {
 }
 .btn:active {
   background: blue;
+}
+
+.error-text {
+  padding-top: 2%;
+  color: red;
+
 }

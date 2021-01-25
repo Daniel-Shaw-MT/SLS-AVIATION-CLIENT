@@ -5,7 +5,8 @@ class LoginForm extends Component {
 
     state = {
         userName: '',
-        password: ''
+        password: '',
+        error: ''
     };
     handleUser = event => {
         this.setState({
@@ -27,9 +28,19 @@ class LoginForm extends Component {
                 body: JSON.stringify({ userName: this.state.userName, password: this.state.password })
             });
             const content = await rawResponse.json();
-        
-            //to set a cookie
-            Cookie.set("token", content.token);
+            console.log(content)
+                if(content.message === 'User not found'){
+                    this.setState({ error: 'Username or password incorrect!'})
+                    setTimeout(() => { this.setState({ error: ''})}, 2000)
+                }else{
+                    this.setState({ error: ''})
+                //to set a cookie
+                Cookie.set("token", content.token);
+                }
+                
+                
+
+            
             // to get a cookie
             //const token =  Cookie.get("token") ? Cookie.get("token") : null;
         })();
@@ -53,6 +64,7 @@ class LoginForm extends Component {
             <header>
                 <div className='main-container'>
                     <div className='loginHead'>
+                        
                         <h2>Hello and welcome to <i>SLS AVIATION</i> online flight logging system.</h2>
                         <br></br>
                         <p>Thank you for using our services, please input your details or register with us if you are new.</p>
@@ -61,10 +73,11 @@ class LoginForm extends Component {
                     </div>
                     <br></br>
                     <div className='loginArea'>
-
+                    <h1>Login</h1>
                         <input type="input" onChange={this.handleUser} className="form__field" placeholder="Username" name="name" id='userName' required />
                         <br></br>
                         <input type="password" onChange={this.handlePass} className="form__field" placeholder="Password" name="name" id='password' required />
+                        <p className='error-text'>{ this.state.error}</p>
                         <div className='btn-cont'>
 
                             <button onClick={this.register} className='btn'><span>Register</span></button>
