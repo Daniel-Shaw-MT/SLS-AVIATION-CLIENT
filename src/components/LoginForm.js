@@ -29,9 +29,13 @@ class LoginForm extends Component {
                 body: JSON.stringify({ userName: this.state.userName, password: this.state.password })
             });
             const content = await rawResponse.json();
-            console.log(content)
+            
+                
                 if(content.message === 'User not found'){
                     this.setState({ error: 'Username or password incorrect!'})
+                    setTimeout(() => { this.setState({ error: ''})}, 2000)
+                }else if(content.message === "Verify your email!"){
+                    this.setState({error: 'Verify your Email address!'}) 
                     setTimeout(() => { this.setState({ error: ''})}, 2000)
                 }else{
                     this.setState({ error: ''})
@@ -44,20 +48,6 @@ class LoginForm extends Component {
             
             // to get a cookie
             //const token =  Cookie.get("token") ? Cookie.get("token") : null;
-        })();
-    }
-    register = () => {
-        (async ()=>{
-            
-            const rawResponse = await fetch('http://localhost:8000/flights/signup',{
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'    
-                },
-                body: JSON.stringify({ email: 'danshawmt@hotmail.com', userName: this.state.userName, password: this.state.password })
-                
-            })
-            console.log(rawResponse)
         })();
     }
     render() {

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "..\\..\\..\\..\\Downloads\\assets\\assets"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "SLS-AVIATION-CLIENT"
+	}
+}

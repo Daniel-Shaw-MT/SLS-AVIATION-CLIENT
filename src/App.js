@@ -20,7 +20,6 @@ function App() {
       
       <Route path='/register' component={RegisterForm}/>
       
-      
     </div>
     </Router>
   );

@@ -1,5 +1,6 @@
 import people from '../assets/svg/030-people.svg'
 import help from '../assets/svg/048-question.svg'
+
 import { Link } from 'react-router-dom'
 import React, { Component } from 'react';
 import Cookie from "js-cookie";
@@ -12,6 +13,39 @@ class RegisterForm extends Component {
         password: '',
         error: ''
     };
+
+    register = event => {
+        (async () => {
+            const rawResponse = await fetch('http://localhost:8000/flights/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ userName: this.state.userName, email: this.state.email ,password: this.state.password })
+            });
+            const content = await rawResponse.json();
+            console.log(content)
+                this.setState({ error: content.message })
+                if(content.message === 'Email already in use!'){
+                    this.setState({ error: 'Email already in use!'})
+                    setTimeout(() => { this.setState({ error: ''})}, 2000)
+                }else if(content.message === "Username already exists!"){
+                    this.setState({error: 'Username already exists!'}) 
+                    setTimeout(() => { this.setState({ error: ''})}, 2000)
+                }else{
+                    this.setState({ error: ''})
+                //to set a cookie
+                Cookie.set("token", content.token);
+                }
+                
+                
+
+            
+            // to get a cookie
+            //const token =  Cookie.get("token") ? Cookie.get("token") : null;
+        })();
+    }
+
     handleUser = event => {
         this.setState({
             userName: event.target.value
@@ -23,9 +57,21 @@ class RegisterForm extends Component {
         })
     }
     handleEmail = event => {
-        this.setState({
-            email: event.target.value
-        })
+    // don't remember from where i copied this code, but this works.
+    // eslint-disable-next-line
+    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if ( re.test(event.target.value) ) {
+        // this is a valid email address
+        this.setState({email: event.target.value})
+        // or update the data in redux store.
+    }
+    else {
+        // invalid email, maybe show an error to the user.
+        console.log("BAD")
+        this.setState({email: ''})
+    }
+
     }
 
     render() {
@@ -33,7 +79,7 @@ class RegisterForm extends Component {
             <header>
                 <header>
                     <div className='main-container'>
-                        <h1 className='title'>Login or signup</h1>
+                        <h1 className='title'>Login or Register</h1>
                         <ul>
                             <li>
                                 <Link to="/contact">
